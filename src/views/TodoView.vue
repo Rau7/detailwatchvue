@@ -6,11 +6,11 @@
           <input
             type="checkbox"
             v-model="todo.completed"
-            class="mr-4 h-10 w-10 cursor-pointer accent-[#4f359b]"
+            class="mr-4 h-6 w-6 cursor-pointer accent-[#4f359b]"
           />
           <span
             :class="[
-              'text-2xl',
+              'text-lg',
               { 'line-through text-gray-500': todo.completed },
             ]"
             >{{ todo.title }}</span

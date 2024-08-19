@@ -1,10 +1,13 @@
 <template>
-  <div class="post-card" @click="showDetails">
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.body.substring(0, 50) }}...</p>
-    <div class="post-card-footer">
-      <p>See More</p>
-      <IconSquareRoundedArrowRight />
+  <div
+    class="border-b border-gray-300 p-4 cursor-pointer transition-colors duration-300 hover:bg-gray-200"
+    @click="showDetails"
+  >
+    <h3 class="text-xl font-medium mb-2">{{ post.title }}</h3>
+    <p class="text-lg font-normal">{{ post.body.substring(0, 50) }}...</p>
+    <div class="flex items-center justify-end gap-2 mt-2">
+      <p class="text-gray-700">See More</p>
+      <IconSquareRoundedArrowRight class="w-8 h-8 text-purple-700" />
     </div>
   </div>
 </template>
@@ -26,39 +29,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.post-card {
-  border-bottom: 1px solid #ccc;
-  padding: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.post-card h3 {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.post-card p {
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-
-.post-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-}
-
-.post-card-footer svg {
-  width: 2rem;
-  height: 2rem;
-  color: #4f359b;
-}
-
-.post-card:hover {
-  background-color: #eee;
-}
-</style>

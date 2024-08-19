@@ -50,8 +50,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.posts-container {
-}
-</style>

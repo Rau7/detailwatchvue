@@ -1,11 +1,27 @@
 <template>
-  <div class="album-detail">
-    <h1>Album Name</h1>
-    <div class="album-images">
-      <img src="https://picsum.photos/150" alt="albumpic-1" />
-      <img src="https://picsum.photos/150" alt="albumpic-2" />
-      <img src="https://picsum.photos/150" alt="albumpic-3" />
-      <img src="https://picsum.photos/150" alt="albumpic-4" />
+  <div class="p-8">
+    <h1 class="text-2xl font-normal mb-4">Album Name</h1>
+    <div class="flex flex-wrap gap-6">
+      <img
+        src="https://picsum.photos/150"
+        alt="albumpic-1"
+        class="w-80 h-auto object-cover"
+      />
+      <img
+        src="https://picsum.photos/150"
+        alt="albumpic-2"
+        class="w-80 h-auto object-cover"
+      />
+      <img
+        src="https://picsum.photos/150"
+        alt="albumpic-3"
+        class="w-80 h-auto object-cover"
+      />
+      <img
+        src="https://picsum.photos/150"
+        alt="albumpic-4"
+        class="w-80 h-auto object-cover"
+      />
     </div>
   </div>
 </template>
@@ -28,28 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.album-detail {
-  padding-left: 2rem;
-}
-
-.album-detail h1 {
-  font-size: 1.8rem;
-  font-weight: 400;
-}
-
-.album-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.album-images img {
-  flex-grow: 1;
-  height: auto;
-  width: 20rem; /* Resimlerin doğal genişliklerini korur */
-  max-width: 20rem;
-  object-fit: cover; /* Resmin oranını korur ve taşmasını engeller */ /* max-width kullanarak büyük ekranlarda da aynı düzeni korur */
-}
-</style>

@@ -1,39 +1,69 @@
 <template>
-  <aside>
-    <div class="aside-header">
-      <div class="user-sec">
-        <img src="https://picsum.photos/200" alt="user-pic" />
-        <div class="user-info">
-          <h3>User Name</h3>
-          <p>user@email.com</p>
+  <aside
+    class="w-64 h-screen bg-gray-100 overflow-y-auto border-r border-gray-200 flex flex-col justify-between"
+  >
+    <div class="aside-container">
+      <div class="p-4 mt-4 flex items-center space-x-4">
+        <div
+          class="flex items-center space-x-4 border-b border-b-gray-200 pb-4"
+        >
+          <img
+            class="w-12 h-12 rounded-full"
+            src="https://picsum.photos/200"
+            alt="user-pic"
+          />
+          <div class="text-gray-800">
+            <h3 class="text-xl font-semibold">User Name</h3>
+            <p class="text-base font-light text-sm">user@email.com</p>
+          </div>
         </div>
       </div>
-      <ul>
+      <ul class="mt-12 space-y-5">
         <li :class="{ active: isExactActive('/') }">
-          <RouterLink class="side-nav-link" to="/"
-            ><IconCheckupList />Todos</RouterLink
+          <RouterLink
+            class="flex items-center space-x-4 px-6 py-3 text-gray-600 hover:text-indigo-600"
+            to="/"
           >
+            <IconCheckupList class="w-6 h-6 text-indigo-600" />
+            <span>Todos</span>
+          </RouterLink>
         </li>
         <li :class="{ active: isExactActive('/posts') }">
-          <RouterLink class="side-nav-link" to="/posts"
-            ><IconNotebook />Posts</RouterLink
+          <RouterLink
+            class="flex items-center space-x-4 px-6 py-3 text-gray-600 hover:text-indigo-600"
+            to="/posts"
           >
+            <IconNotebook class="w-6 h-6 text-indigo-600" />
+            <span>Posts</span>
+          </RouterLink>
         </li>
         <li :class="{ active: isAlbumActive('/albums') }">
-          <RouterLink class="side-nav-link" to="/albums"
-            ><IconPhotoHeart />Albums</RouterLink
+          <RouterLink
+            class="flex items-center space-x-4 px-6 py-3 text-gray-600 hover:text-indigo-600"
+            to="/albums"
           >
+            <IconPhotoHeart class="w-6 h-6 text-indigo-600" />
+            <span>Albums</span>
+          </RouterLink>
         </li>
         <li :class="{ active: isExactActive('/users') }">
-          <RouterLink class="side-nav-link" to="/users"
-            ><IconUsers />Users</RouterLink
+          <RouterLink
+            class="flex items-center space-x-4 px-6 py-3 text-gray-600 hover:text-indigo-600"
+            to="/users"
           >
+            <IconUsers class="w-6 h-6 text-indigo-600" />
+            <span>Users</span>
+          </RouterLink>
         </li>
       </ul>
     </div>
-    <div class="aside-footer">
-      <div class="aside-firm-logo">
-        <img src="../assets/FirmLogo.png" alt="user-pic" />
+    <div class="flex items-center justify-start p-4">
+      <div class="firm-logo-container border-t border-gray-200 w-full">
+        <img
+          class="w-full h-auto pt-4"
+          src="../assets/FirmLogo.png"
+          alt="firm-logo"
+        />
       </div>
     </div>
   </aside>
@@ -76,72 +106,7 @@ export default {
 };
 </script>
 
-<style scoped>
-aside {
-  width: 260px;
-  height: 100vh;
-  background-color: #f5f5f5;
-  overflow-y: auto; /* İçerik taşarsa kaydırma ekler */
-  overflow-x: hidden;
-  border-right: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.user-sec {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  margin: 4rem 2rem;
-  padding-bottom: 2rem;
-}
-.user-sec img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.user-info h3 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin: 0;
-}
-.user-info p {
-  font-size: 1.4rem;
-  font-weight: 300;
-  text-decoration: underline;
-  margin: 0;
-}
-
-aside ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 5rem;
-}
-aside ul li {
-  margin-bottom: 2.5rem;
-  transition: all 0.3s ease-in;
-}
-aside ul li a {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  font-size: 1.8rem;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.45);
-  font-weight: 400;
-  padding-left: 4rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-aside ul li a svg {
-  width: 2.4rem;
-  height: 2.4rem;
-  color: #4f359b;
-}
-
+<style>
 .active {
   position: relative;
   background-color: white;
@@ -152,36 +117,6 @@ aside ul li a svg {
 }
 
 .active::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background-color: #4f359b;
-  border-radius: 0 6px 6px 0;
-}
-
-.aside-firm-logo {
-  display: flex;
-  justify-content: start;
-  border-top: 1px solid #ddd;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 5rem;
-  padding-top: 2rem;
-}
-
-aside ul li:hover {
-  position: relative;
-  background-color: white;
-}
-
-aside ul li:hover a {
-  color: #4f359b;
-}
-
-aside ul li:hover::before {
   content: "";
   position: absolute;
   top: 0;

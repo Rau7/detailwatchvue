@@ -1,6 +1,6 @@
 <template>
-  <div class="user-view">
-    <h2>All Users</h2>
+  <div class="p-4">
+    <h2 class="text-2xl font-semibold mb-12 pl-8">All Users</h2>
     <UserListComponent :users="users" />
   </div>
 </template>
@@ -81,16 +81,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.user-view {
-  padding: 1rem;
-}
-
-.user-view h2 {
-  padding-left: 2rem;
-  margin-bottom: 3rem;
-  font-size: 2rem;
-  font-weight: 600;
-}
-</style>

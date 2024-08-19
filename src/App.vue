@@ -1,7 +1,7 @@
 <template>
-  <div id="appMain">
+  <div id="appMain" class="flex w-full">
     <SidebarComponent />
-    <div class="content">
+    <div class="content flex-1">
       <HeaderComponent />
       <router-view />
     </div>
@@ -20,13 +20,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#appMain {
-  display: flex;
-  width: 100vw;
-}
-.content {
-  width: calc(100% - 330px);
-}
-</style>

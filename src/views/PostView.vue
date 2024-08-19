@@ -1,5 +1,5 @@
 <template>
-  <div class="post-view">
+  <div class="p-2">
     <PostListComponent />
   </div>
 </template>
@@ -13,9 +13,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.post-view {
-  padding: 2rem;
-}
-</style>

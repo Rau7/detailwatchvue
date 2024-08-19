@@ -1,5 +1,5 @@
 <template>
-  <div class="user-list">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
     <UserCardComponent v-for="user in users" :key="user.id" :user="user" />
   </div>
 </template>
@@ -20,15 +20,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.user-list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6rem;
-  row-gap: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-</style>

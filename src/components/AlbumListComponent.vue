@@ -1,5 +1,5 @@
 <template>
-  <div class="album-list">
+  <div class="w-full grid grid-cols-3 gap-16 px-8">
     <AlbumCardComponent
       v-for="album in albums"
       :key="album.id"
@@ -30,14 +30,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.album-list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-</style>
