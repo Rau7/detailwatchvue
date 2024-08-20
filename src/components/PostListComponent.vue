@@ -5,19 +5,22 @@
         v-for="post in posts"
         :key="post.id"
         :post="post"
-        @show-details="openModal(post)"
+        @show-details="openModal"
       />
     </div>
 
     <PostDetailModal
       v-if="selectedPost"
       :post="selectedPost"
+      :postId="selectedPost.id"
       @close="closeModal"
     />
   </div>
 </template>
 
 <script>
+import { computed, ref } from "vue";
+import { usePostStore } from "@/stores/postStore";
 import PostCard from "./PostCardComponent.vue";
 import PostDetailModal from "@/modals/PostDetailModal.vue";
 
@@ -26,27 +29,22 @@ export default {
     PostCard,
     PostDetailModal,
   },
-  data() {
-    return {
-      posts: [], // Replace with your actual data fetching
-      selectedPost: null,
+  setup() {
+    const postStore = usePostStore();
+    postStore.initializePosts();
+
+    const posts = computed(() => postStore.getPostsForCurrentUser());
+    const selectedPost = ref(null);
+
+    const openModal = (post) => {
+      selectedPost.value = post;
     };
-  },
-  methods: {
-    openModal(post) {
-      this.selectedPost = post;
-    },
-    closeModal() {
-      this.selectedPost = null;
-    },
-  },
-  mounted() {
-    // Fetch your posts here
-    this.posts = [
-      { id: 1, title: "Post 1", body: "This is the body of post 1" },
-      { id: 2, title: "Post 2", body: "This is the body of post 2" },
-      { id: 3, title: "Post 3", body: "This is the body of post 3" },
-    ];
+
+    const closeModal = () => {
+      selectedPost.value = null;
+    };
+
+    return { posts, selectedPost, openModal, closeModal };
   },
 };
 </script>

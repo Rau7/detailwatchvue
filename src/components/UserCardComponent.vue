@@ -1,6 +1,7 @@
 <template>
   <div
     class="border border-gray-300 rounded-lg p-4 mb-4 w-full hover:shadow-lg transition-all duration-300 cursor-pointer"
+    @click="selectUser"
   >
     <div class="flex items-center gap-12 mb-4">
       <img
@@ -21,7 +22,7 @@
           <p>Location</p>
         </div>
         <p class="text-base font-light text-gray-500 ml-2">
-          Timko sokak no:2 Yenimahalle, Ankara
+          {{ user.address.city }}, {{ user.address.street }}
         </p>
       </div>
       <div class="mb-4">
@@ -67,6 +68,15 @@ export default {
     user: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    selectUser() {
+      localStorage.setItem("currentUser", JSON.stringify(this.user));
+      //without hardrefresh
+      //this.$router.push("/");
+      //actually for changing the user immediately, we need hardrefresh at this point
+      window.location.href = "/";
     },
   },
 };

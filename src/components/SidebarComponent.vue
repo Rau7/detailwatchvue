@@ -13,8 +13,8 @@
             alt="user-pic"
           />
           <div class="text-gray-800">
-            <h3 class="text-xl font-semibold">User Name</h3>
-            <p class="text-base font-light text-sm">user@email.com</p>
+            <h3 class="text-xl font-semibold">{{ currentUser.name }}</h3>
+            <p class="text-base font-light text-sm">{{ currentUser.email }}</p>
           </div>
         </div>
       </div>
@@ -98,9 +98,15 @@ export default {
       return route.path.startsWith("/albums");
     };
 
+    const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {
+      name: "Guest",
+      email: "guest@example.com",
+    };
+
     return {
       isExactActive,
       isAlbumActive,
+      currentUser,
     };
   },
 };

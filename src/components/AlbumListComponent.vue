@@ -1,32 +1,33 @@
 <template>
-  <div class="w-full grid grid-cols-3 gap-16 px-8">
-    <AlbumCardComponent
-      v-for="album in albums"
-      :key="album.id"
-      :album="album"
-    />
+  <div class="album-list">
+    <div class="w-full grid grid-cols-3 gap-16 px-8">
+      <AlbumCardComponent
+        v-for="album in albums"
+        :key="album.id"
+        :album="album"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import { computed, onMounted } from "vue";
+import { useAlbumStore } from "@/stores/albumStore";
 import AlbumCardComponent from "./AlbumCardComponent.vue";
 
 export default {
-  name: "AlbumList",
   components: {
     AlbumCardComponent,
   },
-  data() {
-    return {
-      albums: [
-        { id: 1, title: "Album 1" },
-        { id: 2, title: "Album 2" },
-        { id: 3, title: "Album 3" },
-        { id: 4, title: "Album 4" },
-        { id: 5, title: "Album 5" },
-        { id: 6, title: "Album 6" },
-      ],
-    };
+  setup() {
+    const albumStore = useAlbumStore();
+    onMounted(() => {
+      albumStore.initializeAlbums();
+    });
+
+    const albums = computed(() => albumStore.getAlbumsForCurrentUser());
+
+    return { albums };
   },
 };
 </script>
