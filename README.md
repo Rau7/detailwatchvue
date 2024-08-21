@@ -10,15 +10,14 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Pinia is used for state management.
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For the given task,
+
+- There is nothing written about the responsiveness, so this part is skipped.
+
+- Something is odd about user cards in task documentation and visualized task (figma). Figma file that is shared used as base.
+
+
+More comments can be found in files.
