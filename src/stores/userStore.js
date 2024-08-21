@@ -1,5 +1,18 @@
 import { defineStore } from "pinia";
 
+/* 
+userStore,
+
+the state will be array of users from local storage if not empty
+
+the actions will be setUsers and initializeUsers
+
+setUsers: when new user set added, set them both users state and local storage
+
+initializeUsers: on users/ page or endpoint initialize the users
+if users are empty, set users with an example data.
+
+*/
 export const useUserStore = defineStore("userStore", {
   state: () => ({
     users: JSON.parse(localStorage.getItem("users")) || [],

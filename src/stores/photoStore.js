@@ -1,4 +1,20 @@
 import { defineStore } from "pinia";
+/* 
+photoStore,
+
+the state will be array of photos from local storage if not empty
+
+the actions will be setPhotos, initializePhotos, getPhotosByAlbumId and getPhotoById
+
+setPhotos: when new photo set added, set them both photos state and local storage
+
+initializePhotos: on photos/ page or endpoint initialize the photos
+if photos are empty, set photos with an example data.
+
+getPhotoById: get photos for a specific given id
+
+getPhotosByAlbumId: get photos of a single album with given id
+*/
 
 export const usePhotoStore = defineStore("photoStore", {
   state: () => ({

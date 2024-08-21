@@ -30,9 +30,11 @@ export default {
     PostDetailModal,
   },
   setup() {
+    /* initialize the userPosts */
     const postStore = usePostStore();
     postStore.initializePosts();
 
+    /* get posts of current user */
     const posts = computed(() => postStore.getPostsForCurrentUser());
     const selectedPost = ref(null);
 

@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="w-64 h-screen bg-gray-100 overflow-y-auto border-r border-gray-200 flex flex-col justify-between"
+    class="w-64 h-screen bg-gray-100 border-r border-gray-200 flex flex-col justify-between sticky top-0"
   >
     <div class="aside-container">
       <div class="p-4 mt-4 flex items-center space-x-4">

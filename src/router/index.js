@@ -5,6 +5,7 @@ import TodoView from "@/views/TodoView.vue";
 import UserView from "@/views/UserView.vue";
 import PostView from "@/views/PostView.vue";
 
+/* used for the routes that are needed */
 const routes = [
   {
     path: "/",

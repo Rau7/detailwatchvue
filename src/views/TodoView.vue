@@ -6,7 +6,7 @@
           <input
             type="checkbox"
             v-model="todo.completed"
-            @change="toggleCompletion(todo.id)"
+            @change="this.todoStore.syncStorage()"
             class="mr-4 h-6 w-6 cursor-pointer accent-[#4f359b]"
           />
           <span
@@ -24,27 +24,25 @@
 
 <script>
 import { useTodoStore } from "@/stores/todoStore";
-//import { useUserStore } from "@/stores/userStore";
 
 export default {
   name: "TodoView",
+  setup() {
+    const todoStore = useTodoStore();
+    return { todoStore };
+  },
+
   computed: {
     userTodos() {
-      const todoStore = useTodoStore();
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      if (currentUser.id === null) return [];
-      return todoStore.getUserTodos(currentUser.id);
+      if (!currentUser || !currentUser.id) return [];
+      console.log("updating the list!");
+      return this.todoStore.getUserTodos(currentUser.id);
     },
   },
-  methods: {
-    toggleCompletion(todoId) {
-      const todoStore = useTodoStore();
-      todoStore.toggleTodoCompletion(todoId);
-    },
-  },
+  methods: {},
   mounted() {
-    const todoStore = useTodoStore();
-    todoStore.initializeTodos();
+    this.todoStore.initializeTodos();
   },
 };
 </script>

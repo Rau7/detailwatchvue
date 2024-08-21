@@ -29,9 +29,11 @@ export default {
     const photoStore = usePhotoStore();
     const albumStore = useAlbumStore();
     const albumId = parseInt(props.id);
+    /* these also can be placed in computed action instead of setup */
     const album = computed(() => albumStore.getAlbumById(albumId));
     const photos = computed(() => photoStore.getPhotosByAlbumId(albumId));
 
+    /* this can be placed in mounted */
     onMounted(() => {
       photoStore.initializePhotos();
     });

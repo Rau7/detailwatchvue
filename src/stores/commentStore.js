@@ -1,5 +1,19 @@
 import { defineStore } from "pinia";
 
+/* 
+commentStore,
+
+the state will be array of comments from local storage if not empty
+
+the actions will be setComments, initializeComments, getCommentsByPostId
+
+setComments: when new comment set added, set them both comments state and local storage
+
+initializeComments: on comments/ page or endpoint initialize the comments
+if comments are empty, set comments with an example data.
+
+getCommentsByPostId: get comments of a single post with given id
+*/
 export const useCommentStore = defineStore("commentStore", {
   state: () => ({
     comments: JSON.parse(localStorage.getItem("comments")) || [],
@@ -45,9 +59,6 @@ export const useCommentStore = defineStore("commentStore", {
       }
     },
     getCommentsForPost(postId) {
-      return this.comments.filter((comment) => comment.postId === postId);
-    },
-    getCommentsByPostId(postId) {
       return this.comments.filter((comment) => comment.postId === postId);
     },
   },

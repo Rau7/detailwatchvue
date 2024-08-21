@@ -1,5 +1,21 @@
 import { defineStore } from "pinia";
 
+/* 
+albumStore,
+
+the state will be array of albums from local storage if not empty
+
+the actions will be setAlbums, initializeAlbums, getAlbumById, getAlbumsForCurrentUser
+
+setAlbums: when new album set added, set them both albums state and local storage
+
+initializeAlbums: on albums/ page or endpoint initialize the albums
+if albums are empty, set albums with an example data.
+
+getAlbumById: get album with given id
+
+getAlbumsForCurrentUser: get currentUser from localstorage and get albums for current user
+*/
 export const useAlbumStore = defineStore("albumStore", {
   state: () => ({
     albums: JSON.parse(localStorage.getItem("albums")) || [],

@@ -1,5 +1,22 @@
 import { defineStore } from "pinia";
 
+/* 
+postStore,
+
+the state will be array of posts from local storage if not empty
+
+the actions will be setPosts, initializePosts, getPostsForCurrentUser and getPostById
+
+setPosts: when new post set added, set them both posts state and local storage
+
+initializePosts: on posts/ page or endpoint initialize the posts
+if posts are empty, set posts with an example data.
+
+getPostById: get posts for a specific given id
+
+getPostsForCurrentUser: get currentUser from localstorage and get posts for current user
+
+*/
 export const usePostStore = defineStore("postStore", {
   state: () => ({
     posts: JSON.parse(localStorage.getItem("posts")) || [],
